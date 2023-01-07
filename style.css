@@ -1,0 +1,38 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    background-color: #222;
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+
+h2 {
+    border-radius: 2px;
+    font-size: larger;
+}
+
+.card {
+    background-color: #000000d0;
+    color: white;
+    border: black;
+    border-radius: 30px;
+    padding: 2em;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+}
+
+.search {
+    border: none;
+    border-radius: 18px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
