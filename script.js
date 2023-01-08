@@ -2,10 +2,10 @@
 var apiRootUrl = 'https://api.openweathermap.org';
 
 let weather = {
-    apiKey: "d91f911bcf2c0f925fb6535547a5ddc9",
+    apiKey: "a90173d6616c0e08afdfa728cac2e88b",
     fetchWeather: function (city) {
         fetch(
-            "https://api.openweathermap.org/data/2.5/weather?q=" 
+            "https://api.openweathermap.org/data/2.5/weather?" 
             + city
             + this.apiKey
         )
