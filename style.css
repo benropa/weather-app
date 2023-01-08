@@ -102,3 +102,8 @@ h2 {
     margin: .5em;
 }
 
+@media screen and (max-width: 1200px) {
+  .body-content{
+    flex-wrap: wrap;
+ }
+}
