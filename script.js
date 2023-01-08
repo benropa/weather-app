@@ -21,12 +21,13 @@ function getResults (query) {
 }
 
 function displayResults (weather) {
+    console.log(weather);
 // display entered-in city    
     let city = document.querySelector('.city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
 // display current temperature
-    let temp = document.querySelector('.current .temp');
-    temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`;
+    let temp = document.querySelector('.temp');
+    temp.innerText = `${Math.round(weather.main.temp)}°F`;
 
     let weather_el = document.querySelector('.current .weather');
     weather_el.innerText = weather.weather[0].main;
@@ -34,4 +35,5 @@ function displayResults (weather) {
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${weather.main.temp_min}°F / ${weather.main.temp_max}°F`;
 }
+
 
