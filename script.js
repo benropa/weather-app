@@ -1,16 +1,26 @@
 // Setting up Global Variables
-var apiRootUrl = 'https://api.openweathermap.org';
+const api = {
+    key: "a90173d6616c0e08afdfa728cac2e88b",
+    baseurl: "https://api.openweathermap.org/data/2.5/",
+}
 
-let weather = {
-    apiKey: "a90173d6616c0e08afdfa728cac2e88b",
-    fetchWeather: function (city) {
-        fetch(
-            "https://api.openweathermap.org/data/2.5/weather?" 
-            + city
-            + this.apiKey
-        )
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+const search = document.querySelector('.search');
+search.addEventListener('keypress', setQuery);
+
+function setQuery(event) {
+    if (event.keyCode == 13) {
+        getResults(search.value);
+        console.log(search.value);
     }
+}
 
-};
+function getResults (query) {
+    fetch(`${api.baseurl}weather?q=${query}&units=standard&APPID=${api.key}`)
+    .then(weather => {
+        return weather.json();
+    }).then(displayResults);
+}
+
+function displayResults (weather) {
+    console.log(weather);
+}
