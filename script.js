@@ -10,7 +10,6 @@ search.addEventListener('keypress', setQuery);
 function setQuery(event) {
     if (event.keyCode == 13) {
         getResults(search.value);
-        console.log(search.value);
     }
 }
 
@@ -22,5 +21,17 @@ function getResults (query) {
 }
 
 function displayResults (weather) {
-    console.log(weather);
+// display entered-in city    
+    let city = document.querySelector('.city');
+    city.innerText = `${weather.name}, ${weather.sys.country}`;
+// display current temperature
+    let temp = document.querySelector('.current .temp');
+    temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`;
+
+    let weather_el = document.querySelector('.current .weather');
+    weather_el.innerText = weather.weather[0].main;
+
+    let hilow = document.querySelector('.hi-low');
+    hilow.innerText = `${weather.main.temp_min}°F / ${weather.main.temp_max}°F`;
 }
+
