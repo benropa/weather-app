@@ -1,24 +1,36 @@
 // Setting up Global Variables
-const api = {
-    key: "a90173d6616c0e08afdfa728cac2e88b",
-    baseurl: "https://api.openweathermap.org/data/2.5/",
-}
+// API for search entry location's Weather NOW
+var apikey = "a90173d6616c0e08afdfa728cac2e88b";
+var apiurl = "https://api.openweathermap.org/data/2.5/";
 
+// timezone plugins
+dayjs.extend(window.dayjs_plugin_utc);
+dayjs.extend(window.dayjs_plugin_timezone);
+
+// API for forecast that requires a citie's longitude and latitude
+var apiforecast = `${apiurl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apikey}`;
+
+// Search button set up
 const search = document.querySelector('.search');
 search.addEventListener('keypress', setQuery);
 
+// Using enter key to utilize search
 function setQuery(event) {
     if (event.keyCode == 13) {
         getResults(search.value);
     }
 }
 
+// gathering data from initial api and displaying results
 function getResults (query) {
-    fetch(`${api.baseurl}weather?q=${query}&units=standard&APPID=${api.key}`)
+    fetch(`${apiurl}weather?q=${query}&units=standard&APPID=${apikey}`)
     .then(weather => {
         return weather.json();
     }).then(displayResults);
 }
+
+// saving results from api request in order to display content and make another api call
+
 
 function displayResults (weather) {
     console.log(weather);
